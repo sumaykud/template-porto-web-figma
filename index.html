@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Andreas Sumayku's Portfolio - my personal project.">
+    <meta name="keywords" content="Portfolio, Andreas Sumayku, design, UI/UX, creative, graphic design">
+    <meta name="author" content="Andreas Sumayku">
+    <title>Andreas Sumayku - Portfolio</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JVJYLPR9SM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JVJYLPR9SM');
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        #loading-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        #lottie-animation {
+            width: 300px;
+            height: 300px;
+        }
+
+        #content-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: translateY(100%);
+            transition: transform 0.8s ease-in-out;
+            background: black;
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            visibility: hidden;
+        }
+
+        .label-mask {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: black;
+            z-index: 1000;
+            pointer-events: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading-container">
+        <div id="lottie-animation"></div>
+    </div>
+    <div id="content-container">
+        <div id="iframe-container"></div>
+        <div class="label-mask">© 2024 Portfolio Andreas Sumayku. All Rights Reserved</div>
+    </div>
+
+    <script>
+        const animation = lottie.loadAnimation({
+            container: document.getElementById('lottie-animation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'misc/uxload.json'
+        });
+
+        function loadAppropriateVersion() {
+            const container = document.getElementById('iframe-container');
+            const iframe = document.createElement('iframe');
+            
+            iframe.setAttribute('allowfullscreen', 'true');
+            iframe.setAttribute('title', 'Andreas Sumayku Portfolio');
+            
+            const width = window.innerWidth;
+            
+            if (width <= 768) {
+                // Updated mobile version link
+                iframe.src = "https://embed.figma.com/proto/p5LWzJmZsddNpitUfQSX3S/Portfolio?page-id=1%3A19&node-id=1-25&node-type=frame&viewport=1197%2C610%2C0.47&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A25&embed-host=share";
+            } else if (width <= 1024) {
+                // Tablet version
+                iframe.src = "https://embed.figma.com/proto/p5LWzJmZsddNpitUfQSX3S/Portfolio?page-id=1%3A18&node-id=1-20&node-type=canvas&viewport=756%2C509%2C0.47&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A20&embed-host=share";
+            } else {
+                // Desktop version
+                iframe.src = "https://embed.figma.com/proto/p5LWzJmZsddNpitUfQSX3S/Portfolio?page-id=0%3A1&node-id=1-2&node-type=frame&viewport=2784%2C1344%2C0.87&scaling=min-zoom&content-scaling=fixed&embed-host=share";
+            }
+
+            iframe.onload = function() {
+                iframe.style.visibility = 'visible';
+                setTimeout(() => {
+                    document.getElementById('loading-container').style.transform = 'translateY(-100%)';
+                    document.getElementById('content-container').style.transform = 'translateY(0)';
+                }, 1000);
+            };
+
+            container.innerHTML = '';
+            container.appendChild(iframe);
+        }
+
+        loadAppropriateVersion();
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(loadAppropriateVersion, 250);
+        });
+
+        
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Detail - Andreas Sumayku</title>
+    <link rel="stylesheet" href="css/detail_3d.css">
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Back Navigation -->
+    <nav class="back-nav">
+        <a href="/" class="back-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M11 18l-6-6 6-6"/>
+            </svg>
+            Back to Home
+        </a>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="project-header">
+        <div class="header-content">
+            <h1>Project Title</h1>
+            <p class="subheader">A comprehensive design exploration</p>
+        </div>
+        <!-- 3D Canvas -->
+        <div id="three-container"></div>
+    </header>
+
+    <main class="container">
+        <!-- Project Description -->
+        <section class="project-description">
+            <p>An innovative approach to solving complex design challenges through user-centered methodologies and iterative development processes. This project showcases the intersection of form and function, creating meaningful experiences that resonate with users.</p>
+        </section>
+
+        <!-- Masonry Image Gallery -->
+        <section class="masonry-gallery">
+            <div class="masonry-item">
+                <img src="/api/placeholder/800/450" alt="Project Image 1" loading="lazy">
+            </div>
+            <div class="masonry-item">
+                <img src="/api/placeholder/400/533" alt="Project Image 2" loading="lazy">
+            </div>
+            <div class="masonry-item">
+                <img src="/api/placeholder/400/400" alt="Project Image 3" loading="lazy">
+            </div>
+            <div class="masonry-item">
+                <img src="/api/placeholder/800/400" alt="Project Image 4" loading="lazy">
+            </div>
+            <div class="masonry-item">
+                <img src="/api/placeholder/400/533" alt="Project Image 5" loading="lazy">
+            </div>
+            <div class="masonry-item">
+                <img src="/api/placeholder/400/400" alt="Project Image 6" loading="lazy">
+            </div>
+            <div class="masonry-item">
+                <img src="/api/placeholder/400/300" alt="Project Image 7" loading="lazy">
+            </div>
+        </section>
+    </main>
+
+    <!-- Copyright Mask -->
+    <div class="label-mask">
+        © 2024 Portfolio Andreas Sumayku. All Rights Reserved
+    </div>
+
+    <script src="js/detail_3d.js"></script>
+</body>
+</html>
